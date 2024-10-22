@@ -24,8 +24,8 @@
   transition: opacity 0.2s ease-in-out;
 }
 
-.products li:hover {
-  opacity: 0.8;
+.products li:hover img {
+  border-color: #D4AF37;  /* Golden border only on image hover */
 }
 
 .products h3 {
@@ -43,11 +43,12 @@
 .products img {
   width: 100%;
   border-radius: 2px;
-  border: 0upx solid #2121217a;
+  border: 1px solid transparent;  /* Added transparent border */
   aspect-ratio: 1/1;
   object-fit: cover;
   background: #F5F5F0;
   margin-bottom: 0.5rem;
+  transition: border-color 0.2s ease-in-out;  /* Added transition */
 }
 
 .products button {

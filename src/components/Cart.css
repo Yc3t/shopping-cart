@@ -1,0 +1,133 @@
+.cart {
+  background: #FAF9F6;
+  display: none;
+  padding: 1.5rem;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: 300px;
+  height: 100vh;
+  border-left: 1px solid #e0e0e0;
+  font-family: 'Helvetica Neue', sans-serif;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.cart img {
+  aspect-ratio: 1/1;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.cart li {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 0;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-item-details strong {
+  display: block;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.cart footer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.cart footer button {
+  background-color: transparent;
+  color: #212121;
+  border: 1px solid #212121;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.cart footer button:hover {
+  background-color: #212121;
+  color: #FAF9F6;
+}
+
+.cart-button {
+  align-items: center;
+  background: transparent;
+  border: 1px solid #212121;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  padding: 8px;
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  transition: all 0.2s ease-in-out;
+  width: 40px;
+  z-index: 9999;
+}
+
+.cart-button:hover {
+  background-color: #212121;
+  color: #FAF9F6;
+}
+
+.cart-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.7;
+}
+
+.cart-close:hover {
+  transform: none;
+  opacity: 1;
+}
+
+.cart-button ~ input:checked ~ .cart {
+  height: 100%;
+  display: block;
+}
+
+.clear-cart-button {
+  position: sticky;  /* Changed from absolute */
+  bottom: 0;
+  left: 0;
+  width: 100%;  /* Make it full width */
+  margin-top: 1rem;  /* Add some space from the items above */
+  background-color: transparent;
+  color: #212121;
+  border: 1px solid #212121;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* Center the content */
+  gap: 0.5rem;
+}
+
+.clear-cart-button:hover {
+  background-color: #212121;
+  color: #FAF9F6;
+}

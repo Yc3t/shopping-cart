@@ -4,6 +4,7 @@ import { Products } from "./components/Products.jsx"
 import { useState } from 'react';
 import { Header } from './components/Header.jsx';
 import {useFilters} from './hooks/UseFilters.js'
+import { Cart } from './components/Cart.jsx';
 
 function App() {
   
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
       <Header/>
+      <Cart/>
       <Products products={filteredProducts} />
     </>
   )

@@ -5,8 +5,8 @@ export function Header (){
     <header className="main-header">
       <div className="header-content">
         <h1 className='title'>
-          <span className="title-top">Shopping</span>
-          Cart
+          <span className="title-top">Express</span>
+          Shop 
         </h1>
       </div>
       <Filters setFilters/>
