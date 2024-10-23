@@ -3,7 +3,14 @@ import { createContext, useReducer, useState } from "react";
 //create context
 export const CartContext = createContext()
 
-const initialState = []
+// update localStorage
+
+const updateLocalStorage = state =>{
+  window.localStorage.setItem('cart', JSON.stringify(state))
+}
+
+const initialState = JSON.parse(window.localStorage.getItem('cart'))|| []
+
 const reducer = (state, action) => {
   const { type: actionType, payload: actionPayload } = action
 
@@ -19,7 +26,8 @@ const reducer = (state, action) => {
         return newState
       }
 
-      return [
+
+      const newState = [
         ...state,
         {
           ...actionPayload,
@@ -27,16 +35,22 @@ const reducer = (state, action) => {
 
         }
       ]
+      updateLocalStorage(newState)
+      return newState
 
     }
 
     case 'REMOVE_FROM_CART': {
       const { id } = actionPayload
-      return state.filter(item => item.id !== id)
+      const newState =  state.filter(item => item.id !== id)
+      updateLocalStorage(newState)
+      return newState
+
 
     }
 
     case 'CLEAR_CART': {
+      updateLocalStorage(initialState)
       return initialState
 
     }
