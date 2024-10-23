@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Header } from './components/Header.jsx';
 import {useFilters} from './hooks/UseFilters.js'
 import { Cart } from './components/Cart.jsx';
+import { CartProvider } from './context/cart.jsx';
 
 function App() {
   
@@ -14,11 +15,11 @@ function App() {
   const filteredProducts = filterProducts(initialProducts)
  
   return (
-    <>
+    <CartProvider>
       <Header/>
       <Cart/>
       <Products products={filteredProducts} />
-    </>
+    </CartProvider>
   )
 }
 
