@@ -6,7 +6,7 @@ export const CartContext = createContext()
 //create provider
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([])
-
+ 
 
   const addToCart = (product) => {
     //check if product is already on cart
@@ -27,6 +27,12 @@ export function CartProvider({ children }) {
 
   } 
 
+  const removeFromCart = product => {
+    //add only the items that do not match the product.id -> product.id removed
+    setCart(prevState => prevState.filter(item=> item.id !== product.id))
+
+  }
+
 
   const clearCart = () => {
   
@@ -37,7 +43,8 @@ export function CartProvider({ children }) {
     <CartContext.Provider value={{
       cart,
       addToCart,
-      clearCart
+      clearCart,
+      removeFromCart
     }}
     >
       { children }

@@ -1,9 +1,48 @@
-import { ShoppingBag, Trash2Icon } from 'lucide-react'
+import { Car, ShoppingBag, Trash2Icon } from 'lucide-react'
 import './Cart.css'
 import { useId } from 'react'
+import { useCart } from '../hooks/UseCart'
+
+
+
+function CartItem({thumbnail,price,title,quantity,addToCart}){
+  return(
+  <li>
+      <img
+        src ={thumbnail}
+        alt={title}
+      />
+      
+      <div className='prod'>
+        <strong>{title}</strong> - ${price}
+      </div>
+
+      <footer className='quant'>
+        <small>
+          Qty: {quantity}
+        </small>
+
+        <button onClick={addToCart}>+</button>
+
+      </footer>
+
+  </li>
+  )
+
+}
+
+
+
+
+
+
+
+
+
 
 export function Cart() {
     const cartCheckboxId = useId()
+    const {cart,clearCart, addToCart} = useCart()
 
     return (
         <>
@@ -14,22 +53,17 @@ export function Cart() {
         <input id={cartCheckboxId} type='checkbox' hidden/>
         <aside className='cart'>
             <ul> 
-                <li>
-                    <img
-                    src='https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png'
-                    alt='test'
-                    />
-                    <div className="cart-item-details">
-                        <strong>test</strong>
-                        <span>$141</span>
-                        <footer>
-                            <small>Qty: 1</small>
-                            <button>+</button>
-                        </footer>
-                    </div>
-                </li>
-            </ul>
-            <button className="clear-cart-button">
+          {cart.map(product =>(
+          <CartItem
+              key = {product.id}
+              addToCart={() => addToCart(product)}
+              {...product}
+            />
+
+          ))}
+
+           </ul>
+            <button onClick = {clearCart} className="clear-cart-button">
                 <Trash2Icon size={16}/>
                 Clear Cart
             </button>

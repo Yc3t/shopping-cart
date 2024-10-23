@@ -30,6 +30,13 @@
 .cart-item-details {
   flex-grow: 1;
 }
+.prod{
+  font-size: 15px;
+}
+.quant{
+  font-size:15px
+}
+
 
 .cart-item-details strong {
   display: block;
